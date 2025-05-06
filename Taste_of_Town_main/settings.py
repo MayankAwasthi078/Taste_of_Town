@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'Taste_of_Town_main.urls'
@@ -144,3 +145,18 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD="ylfvmirnjfhsslhs"
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Taste of Town Marketplace <mayankdjangoproject@gmail.com>'
+
+CSRF_TRUSTED_ORIGINS = [
+'http://localhost:3000',
+'http://localhost:8000',
+]
