@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'accounts.context_processors.get_vendor',
+                'accounts.context_processors.get_google_api',
             ],
         },
     },
@@ -161,3 +162,5 @@ CSRF_TRUSTED_ORIGINS = [
 'http://localhost:3000',
 'http://localhost:8000',
 ]
+
+GOOGLE_API_KEY ='AIzaSyDq_B3f-zxYxuIC44URT__hif_Lv6BC5Ho'
