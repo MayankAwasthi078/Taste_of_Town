@@ -19,13 +19,10 @@ Hello{% extends 'base.html' %}
 								<hr>
                                 <button class="btn btn-secondary" onclick="history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</button>
                                 <br><br>
-								<h6>Category: <span class="text-uppercase text-success">{{category}}
-								 <a href="#" class="btn btn-success float-right m-1"><i class="fa fa-plus" aria-hidden="true"></i> Add Food</a>
-                            	<a href="#" class="btn btn-info float-right m-1"><i class="fa fa-plus" aria-hidden="true"></i> Add Category</a>
-									<table class="table table-hover table-borderless">
-										
-											 <tbody>
+								<h6>Category: <span class="text-uppercase text-success">{{category}}</span></h6>
                                 {% for food in fooditems %}
+                                <table class="table table-hover table-borderless">
+                                    <tbody>
                                   <tr>
                                     <td class="text-left">{{ forloop.counter }}</td>
                                     <td class="text-left"><img src="{{food.image.url}}" alt="Food Image" width="40"></td>
@@ -40,7 +37,7 @@ Hello{% extends 'base.html' %}
                                         <span class="badge badge-danger">Not Available</span>
                                         {% endif %}
                                     </td>
-                                    <td><a href="" style="color: unset;"><i class="fa fa-pencil" aria-hidden="true"></i></a> &nbsp; <a href="" onclick="return confirm('Are you sure you want to delete this food?')"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
+                                    <td><a href="{% url 'edit_food' food.id %}" style="color: unset;"><i class="fa fa-pencil" aria-hidden="true"></i></a> &nbsp; <a href="{% url 'delete_food' food.id %}"  onclick="return confirm('Are you sure you want to delete this food?')"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
                                   </tr>
                                 {% endfor %}
                                 </tbody>
